@@ -1,0 +1,19 @@
+package ch01;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Practical_3 {
+	public static void main(String[] args) {
+System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
+WebDriver wdObj = new ChromeDriver();
+wdObj.get("https://www.google.com");
+String sUrl = wdObj.getCurrentUrl();
+if(sUrl.equals("https://www.google.com/")) {
+System.out.println("Test Passed");
+} 
+else {
+System.out.println("Test failed");
+}
+}
+}

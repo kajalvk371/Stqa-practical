@@ -1,0 +1,36 @@
+8)Write and test a program to count the number of check boxes on the page checked and
+unchecked count
+
+package ch01;
+
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Pract8{
+	
+	public static void main(String[]args) {
+		System.setProperty("webdriver.gecko.driver","C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
+		
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://designsystem.digital.gov/components/checkbox/");
+		List<WebElement>elements = driver.findElements(By.xpath("//input[@type='checkbox']"));
+		int checked = 0;
+		int unChecked = 0;
+		
+		for(int i=0; i<elements.size();i++) {
+			if(elements.get(i).isSelected() == true)
+				checked = checked+1;
+			else
+				unChecked = unChecked+1;
+		}
+		
+		System.out.println("Checked Count = "+ Integer .toString(checked));
+		System.out.println("UnChecked Count = "+ Integer .toString(unChecked));
+		
+				
+				
+		}
+}
